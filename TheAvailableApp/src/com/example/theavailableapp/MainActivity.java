@@ -8,6 +8,9 @@ import android.app.Activity;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.example.theavailableapp.MainViewUI;
+import com.example.theavailableapp.GoogleService;
+
 public class MainActivity extends Activity {
 
 	//Google Map
