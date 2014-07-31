@@ -21,7 +21,7 @@ public class AvailableWashrooms {
     private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
  
     // Google API Key
-    private static final String API_KEY = "AIzaSyCRLa4LQZWNQBcjCYcIVYA45i9i8zfClqc";
+    private static final String API_KEY = "AIzaSyBQ652g7B4R_-R8IDS0HOhxT03Om6LVOsQ";
  
     // Google Places serach url's
     private static final String PLACES_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/search/json?";
@@ -40,7 +40,7 @@ public class AvailableWashrooms {
      * @param types - type of place to search
      * @return list of places
      * */
-    public PlacesList search(double latitude, double longitude, double radius, String types)
+    public WashroomList search(double latitude, double longitude, double radius, String types)
             throws Exception {
  
         this._latitude = latitude;
@@ -59,7 +59,7 @@ public class AvailableWashrooms {
             if(types != null)
                 request.getUrl().put("types", types);
  
-            PlacesList list = request.execute().parseAs(PlacesList.class);
+            WashroomList list = request.execute().parseAs(WashroomList.class);
             // Check log cat for places response status
             Log.d("Places Status", "" + list.status);
             return list;
@@ -76,7 +76,7 @@ public class AvailableWashrooms {
      * @param refrence - reference id of place
      *                 - which you will get in search api request
      * */
-    public PlaceDetails getPlaceDetails(String reference) throws Exception {
+    public WashroomDetail getWashroomDetails(String reference) throws Exception {
         try {
  
             HttpRequestFactory httpRequestFactory = createRequestFactory(HTTP_TRANSPORT);
@@ -86,7 +86,7 @@ public class AvailableWashrooms {
             request.getUrl().put("reference", reference);
             request.getUrl().put("sensor", "false");
  
-            PlaceDetails place = request.execute().parseAs(PlaceDetails.class);
+            WashroomDetail place = request.execute().parseAs(WashroomDetail.class);
              
             return place;
  

@@ -3,6 +3,6 @@
 
     <string name="app_name">TheAvailableApp</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="Show Places on Map">Show Places on Map</string>
 
 </resources>
